@@ -1,0 +1,34 @@
+{
+  "name": "arcanys-angular-api",
+  "version": "1.0.0",
+  "description": "Simple API Integration end-points",
+  "main": "dist/build.js",
+  "scripts": {
+    "start": "webpack -w",
+    "build": "webpack -p",
+    "test": "ava tests/**/*.js",
+    "test-w": "ava -w tests/**/*.js",
+    "prepublish": "npm build && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npagong/arcanys-angular-api.git"
+  },
+  "keywords": [
+    "API",
+    "End-points",
+    "Arcanys"
+  ],
+  "author": "Nico Pag-ong <n.pagong@arcanys.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-resource": "^1.5.8",
+    "ava": "^0.17.0",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "webpack": "^1.13.3"
+  }
+}
