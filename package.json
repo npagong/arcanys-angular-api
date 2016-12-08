@@ -1,6 +1,6 @@
 {
   "name": "arcanys-angular-api",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Simple API Integration end-points",
   "main": "dist/build.js",
   "scripts": {
