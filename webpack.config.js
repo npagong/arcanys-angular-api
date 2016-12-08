@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './index.js',
+    entry: ['./index.js', './user.service.js'],
     target: 'node',
     output: {
         path: './dist',

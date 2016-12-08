@@ -1,62 +1,51 @@
-export default class Api {
-    constructor($http, $httpParamSerializerJQLike) {
-        'ngInject';
-        this.$http = $http;
+export default class ArcanysApiClient {
+    constructor() {
+        let initInjector = angular.injector(['ng']);
+        this.$http = initInjector.get('$http');
+        this.contentType = 'application/json';
     }
 
-    TEST(url) {
-        return url;
+    setHttp($http) {
+        return this.$http = $http; 
     }
 
-    /* On your controller, call:
-        this.Api.GET(url).then(
-            (response) => {},
-            (error) => {}
-        );
-    */
+    getHttp() {
+        return this.$http;
+    }
+
+    setContentType(contentType) {
+        return this.contentType = contentType; 
+    }
+
+    getContentType() {
+        return this.contentType;
+    }
+
     GET(url) {
-        return this.$http.get(url);
+        return this.getHttp().get(url);
     }
-
-    /* On your controller, call:
-        this.Api.POST(url, data).then(
-            (response) => {},
-            (error) => {}
-        );
-    */
+    
     POST(url,data) {
-        return this.$http.post(url,
-            
-            // Content-Type application/json
-            JSON.stringify(data));
-            
-            // Content-Type application/x-www-form-urlencoded; charset=UTF-8
-            //this.$httpParamSerializerJQLike(data));
-    }
-
-    /* On your controller, call:
-        this.Api.PUT(url, data).then(
-            (response) => {},
-            (error) => {}
+        return this.getHttp().post(
+            url,
+            JSON.stringify(data), 
+            {
+                headers: { 'Content-Type': this.getContentType()}
+            }
         );
-    */
+    }
+    
     PUT(url, data) {
-        return this.$http.post(url,
-            
-            // Content-Type application/json
-            JSON.stringify(data));
-            
-            // Content-Type application/x-www-form-urlencoded; charset=UTF-8
-            //this.$httpParamSerializerJQLike(data));
-    }
-
-    /* On your controller, call:
-        this.Api.DELETE(url, index).then(
-            (response) => {},
-            (error) => {}
+        return this.getHttp().put(
+            url, 
+            JSON.stringify(data), 
+            {
+                headers: { 'Content-Type': this.getContentType()}
+            }
         );
-    */
+    }
+    
     DELETE(url, index) {
-        return this.$http.delete(url + index);
+        return this.getHttp().delete(url + index);
     }
 }
