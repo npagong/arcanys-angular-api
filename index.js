@@ -1,8 +1,11 @@
 export default class ArcanysApiClient {
     constructor() {
-        let initInjector = angular.injector(['ng']);
-        this.$http = initInjector.get('$http');
+        this.$http = null;
         this.contentType = 'application/json';
+    }
+
+    TEST(url) {
+        return url;
     }
 
     setHttp($http) {

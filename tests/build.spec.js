@@ -1,10 +1,10 @@
 var test = require('ava');
-var Api = require('../dist/build');
+var Client = require('../dist/build');
 
-var api = new Api();
+var client = new Client();
 
 test('Trying GET end-point', t => {
-    t.is(api.TEST('will work'), 'will work');
+    t.is(client.TEST('will work'), 'will work');
 });
 
 // test(async function (t) {

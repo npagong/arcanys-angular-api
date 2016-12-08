@@ -76,12 +76,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function ArcanysApiClient() {
 	        _classCallCheck(this, ArcanysApiClient);
 
-	        var initInjector = angular.injector(['ng']);
-	        this.$http = initInjector.get('$http');
+	        this.$http = null;
 	        this.contentType = 'application/json';
 	    }
 
 	    _createClass(ArcanysApiClient, [{
+	        key: 'TEST',
+	        value: function TEST(url) {
+	            return url;
+	        }
+	    }, {
 	        key: 'setHttp',
 	        value: function setHttp($http) {
 	            return this.$http = $http;
