@@ -62,7 +62,7 @@ export default class User extends ArcanysApiClient {
     getRecoverUrl() {
         return this.recoverUrl;
     }
-    recoverPass(url, data) {
+    recoverPass(data) {
         return this.POST(this.getRecoverUrl(), data);
     }
 

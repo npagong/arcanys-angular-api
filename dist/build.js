@@ -265,7 +265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }, {
 	        key: 'recoverPass',
-	        value: function recoverPass(url, data) {
+	        value: function recoverPass(data) {
 	            return this.POST(this.getRecoverUrl(), data);
 	        }
 
