@@ -78,6 +78,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        this.$http = null;
 	        this.contentType = 'application/json';
+	        this.headers = {
+	            'Content-Type': this.getContentType()
+	        };
 	    }
 
 	    _createClass(ArcanysApiClient, [{
@@ -106,6 +109,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return this.contentType;
 	        }
 	    }, {
+	        key: 'setHeaders',
+	        value: function setHeaders(headers) {
+	            return this.headers = headers;
+	        }
+	    }, {
+	        key: 'getHeaders',
+	        value: function getHeaders() {
+	            return this.headers;
+	        }
+	    }, {
 	        key: 'GET',
 	        value: function GET(url) {
 	            return this.getHttp().get(url);
@@ -114,14 +127,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'POST',
 	        value: function POST(url, data) {
 	            return this.getHttp().post(url, JSON.stringify(data), {
-	                headers: { 'Content-Type': this.getContentType() }
+	                headers: this.getHeaders()
 	            });
 	        }
 	    }, {
 	        key: 'PUT',
 	        value: function PUT(url, data) {
 	            return this.getHttp().put(url, JSON.stringify(data), {
-	                headers: { 'Content-Type': this.getContentType() }
+	                headers: this.getHeaders()
 	            });
 	        }
 	    }, {

@@ -2,6 +2,9 @@ export default class ArcanysApiClient {
     constructor() {
         this.$http = null;
         this.contentType = 'application/json';
+        this.headers = {
+            'Content-Type': this.getContentType()
+        }
     }
 
     TEST(url) {
@@ -24,6 +27,14 @@ export default class ArcanysApiClient {
         return this.contentType;
     }
 
+    setHeaders(headers) {
+        return this.headers = headers;
+    }
+
+    getHeaders() {
+        return this.headers;
+    }
+
     GET(url) {
         return this.getHttp().get(url);
     }
@@ -33,7 +44,7 @@ export default class ArcanysApiClient {
             url,
             JSON.stringify(data), 
             {
-                headers: { 'Content-Type': this.getContentType()}
+                headers: this.getHeaders()
             }
         );
     }
@@ -43,7 +54,7 @@ export default class ArcanysApiClient {
             url, 
             JSON.stringify(data), 
             {
-                headers: { 'Content-Type': this.getContentType()}
+                headers: this.getHeaders()
             }
         );
     }
