@@ -58,6 +58,16 @@ export default class ArcanysApiClient {
             }
         );
     }
+
+    PATCH(url, data) {
+        return this.getHttp().patch(
+            url, 
+            JSON.stringify(data), 
+            {
+                headers: this.getHeaders()
+            }
+        );
+    }
     
     DELETE(url, index) {
         return this.getHttp().delete(url + index);

@@ -52,15 +52,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
 	module.exports = __webpack_require__(2);
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -138,6 +138,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            });
 	        }
 	    }, {
+	        key: 'PATCH',
+	        value: function PATCH(url, data) {
+	            return this.getHttp().patch(url, JSON.stringify(data), {
+	                headers: this.getHeaders()
+	            });
+	        }
+	    }, {
 	        key: 'DELETE',
 	        value: function DELETE(url, index) {
 	            return this.getHttp().delete(url + index);
@@ -150,9 +157,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = ArcanysApiClient;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -307,7 +314,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = User;
 	module.exports = exports['default'];
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;
