@@ -36,7 +36,12 @@ export default class ArcanysApiClient {
     }
 
     GET(url) {
-        return this.getHttp().get(url);
+        return this.getHttp().get(
+            url,
+            {
+                headers: this.getHeaders()
+            }
+        );
     }
     
     POST(url,data) {
