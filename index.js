@@ -75,6 +75,11 @@ export default class ArcanysApiClient {
     }
     
     DELETE(url, index) {
-        return this.getHttp().delete(url + index);
+        return this.getHttp().delete(
+            url +'/'+ index,
+            {
+                headers: this.getHeaders()
+            }
+        );
     }
 }
