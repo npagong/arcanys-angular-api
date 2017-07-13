@@ -1,11 +1,11 @@
-var test = require('ava');
-var Client = require('../dist/build');
+// var test = require('ava');
+// var Client = require('../dist/build');
+//
+// var client = new Client();
 
-var client = new Client();
-
-test('Trying GET end-point', t => {
-    t.is(client.TEST('will work'), 'will work');
-});
+// test('Trying GET end-point', t => {
+//     t.is(client.TEST('will work'), 'will work');
+// });
 
 // test(async function (t) {
 //     const value = await api.GET('https://httpbin.org/get');
