@@ -7,12 +7,18 @@ export default class ArcanysApiClient {
         }
     }
 
-    TEST(url) {
-        return url;
+    formatUrlParameters($params) {
+        let urlParameters = [];
+
+        angular.forEach($params, (value, key) => {
+            urlParameters.push(key + '=' + value);
+        });
+
+        return urlParameters.join('&');
     }
 
     setHttp($http) {
-        return this.$http = $http; 
+        return this.$http = $http;
     }
 
     getHttp() {
@@ -20,7 +26,7 @@ export default class ArcanysApiClient {
     }
 
     setContentType(contentType) {
-        return this.contentType = contentType; 
+        return this.contentType = contentType;
     }
 
     getContentType() {
@@ -43,21 +49,21 @@ export default class ArcanysApiClient {
             }
         );
     }
-    
-    POST(url,data) {
+
+    POST(url, data) {
         return this.getHttp().post(
             url,
-            JSON.stringify(data), 
+            JSON.stringify(data),
             {
                 headers: this.getHeaders()
             }
         );
     }
-    
+
     PUT(url, data) {
         return this.getHttp().put(
-            url, 
-            JSON.stringify(data), 
+            url,
+            JSON.stringify(data),
             {
                 headers: this.getHeaders()
             }
@@ -66,14 +72,14 @@ export default class ArcanysApiClient {
 
     PATCH(url, data) {
         return this.getHttp().patch(
-            url, 
-            JSON.stringify(data), 
+            url,
+            JSON.stringify(data),
             {
                 headers: this.getHeaders()
             }
         );
     }
-    
+
     DELETE(url, index) {
         return this.getHttp().delete(
             url +'/'+ index,
