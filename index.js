@@ -11,7 +11,7 @@ export default class ArcanysApiClient {
         let urlParameters = [];
 
         angular.forEach($params, (value, key) => {
-            urlParameters.push(key + '=' + value);
+            urlParameters.push(key + '=' + encodeURIComponent(value));
         });
 
         return urlParameters.join('&');
