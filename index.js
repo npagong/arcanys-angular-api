@@ -7,6 +7,10 @@ export default class ArcanysApiClient {
         }
     }
 
+    TEST($url) {
+        return $url;
+    }
+
     formatUrlParameters($params) {
         let urlParameters = [];
 
